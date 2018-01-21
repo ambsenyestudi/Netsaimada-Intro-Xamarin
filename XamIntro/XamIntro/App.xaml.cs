@@ -13,7 +13,7 @@ namespace XamIntro
 		{
 			InitializeComponent();
 
-			MainPage = new XamIntro.Views.BasicViews.BasicControlView();
+			MainPage = new XamIntro.Views.EditExpenseView();
 		}
 
 		protected override void OnStart ()
