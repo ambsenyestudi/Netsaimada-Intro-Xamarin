@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XamIntro.Views.BasicViews
+namespace XamIntro.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BasicControlView : ContentPage
+	public partial class ExpenseSummaryView : ContentPage
 	{
-		public BasicControlView ()
+		public ExpenseSummaryView ()
 		{
 			InitializeComponent ();
 		}
