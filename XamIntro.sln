@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamIntro.UWP", "XamIntro\Xa
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XamIntro", "XamIntro\XamIntro\XamIntro.shproj", "{78523A08-5AF7-47E5-9122-C21C62E8A90D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB982DD7-EF1D-40CC-B3DD-9C709530EBB2}"
+	ProjectSection(SolutionItems) = preProject
+		ImageFigures\00StackLayour.PNG = ImageFigures\00StackLayour.PNG
+		ImageFigures\01Grid.PNG = ImageFigures\01Grid.PNG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		XamIntro\XamIntro\XamIntro.projitems*{77cea23e-c88c-483c-915f-d6d9d9b0ac9a}*SharedItemsImports = 4
