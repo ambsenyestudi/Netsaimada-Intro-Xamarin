@@ -5,6 +5,8 @@ using System.Text;
 
 using Xamarin.Forms;
 using XamIntro.Services;
+using XamIntro.Services.Contract;
+using XamIntro.Services.Fakes;
 using XamIntro.ViewModels;
 using XamIntro.Views;
 
@@ -15,20 +17,23 @@ namespace XamIntro
 		public App ()
 		{
 			InitializeComponent();
-            initNavigationService();
+            initServices();
         }
-        private void initNavigationService()
+        private void initServices()
         {
             NavigationService navigationService = new NavigationService();
             navigationService.RegisterPage("MainView", typeof(MainView), typeof(MainViewModel));
-            navigationService.RegisterPage("ExpenseSummaryView", typeof(ExpenseSummaryView));
+            navigationService.RegisterPage("ExpenseSummaryView", typeof(ExpenseSummaryView), typeof(ExpenseSummaryViewModel));
             navigationService.RegisterPage("NewExpenseView", typeof(NewExpenseView));
             navigationService.RegisterPage("ExpenseChartView", typeof(ExpenseChartView));
+            navigationService.RegisterPage("EditExpenseView", typeof(EditExpenseView));
             navigationService.NavigateTo("MainView");
             App.Current.Resources.Add("NavigationService", navigationService);
+            IDataService dataService = new FakeDataService();
+            App.Current.Resources.Add("DataService", dataService);
         }
 
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

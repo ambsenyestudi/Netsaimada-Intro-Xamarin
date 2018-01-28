@@ -4,10 +4,26 @@
              Title="Expense Summary"
              x:Class="XamIntro.Views.ExpenseSummaryView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Expense list goes here"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="Pull Down to refresh"/>
+            <ScrollView Grid.Row="1">
+                <ListView ItemsSource="{Binding Expenses}" 
+                    IsPullToRefreshEnabled="true"
+					IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+					RefreshCommand="{Binding GetExpensesCommand}"
+					SelectedItem="{Binding SelectedExpenseItem, Mode=TwoWay}"
+					CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Company}" Detail="{Binding Amount}" TextColor="{Binding Primary}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

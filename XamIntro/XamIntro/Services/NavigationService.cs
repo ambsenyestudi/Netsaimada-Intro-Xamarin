@@ -13,6 +13,7 @@ namespace XamIntro.Services
         public NavigationService()
         {
             initService();
+            MainNavigationPage.Pushed += MainNavigationPage_Pushed;
         }
         public void RegisterPage(string pageName, Type view, Type bindingContext = null)
         {
@@ -30,8 +31,13 @@ namespace XamIntro.Services
         public void NavigateTo(string pageName)
         {
             MainNavigationPage.Navigation.PushAsync(Pages[pageName]);
-
         }
+
+        private void MainNavigationPage_Pushed(object sender, NavigationEventArgs e)
+        {
+            MessagingCenter.Send(this, "Page pushed");
+        }
+
         private void initService()
         {
             Pages = new Dictionary<string, Page>();

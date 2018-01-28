@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\Fakes\FakeDataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EditExpenseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ExpenseSummaryViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NavigationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\EditExpenseView.xaml.cs">
