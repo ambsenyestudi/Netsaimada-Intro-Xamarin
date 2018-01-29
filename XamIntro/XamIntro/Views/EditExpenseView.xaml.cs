@@ -16,7 +16,7 @@ namespace XamIntro.Views
 		public EditExpenseView ()
 		{
 			InitializeComponent ();
-            this.BindingContext = new EditExpenseDetailViewModel();
+            this.BindingContext = new EditExpenseViewModel();
         }
 	}
 }

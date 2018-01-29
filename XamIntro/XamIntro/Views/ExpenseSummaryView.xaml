@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Expense Summary"
              x:Class="XamIntro.Views.ExpenseSummaryView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Command="{Binding AddExpenseCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -15,7 +18,7 @@
                     IsPullToRefreshEnabled="true"
 					IsRefreshing="{Binding IsBusy, Mode=OneWay}"
 					RefreshCommand="{Binding GetExpensesCommand}"
-					SelectedItem="{Binding SelectedExpenseItem, Mode=TwoWay}"
+					SelectedItem="{Binding SelectedExpense, Mode=TwoWay}"
 					CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -28,9 +29,21 @@ namespace XamIntro.Services
             }
             Pages.Add(pageName, registeringPage);
         }
-        public void NavigateTo(string pageName)
+        public void NavigateTo(string pageName, object parameter = null)
         {
+            if (parameter != null)
+            {
+                Type type = parameter.GetType();
+                string typeName = type.ToString().Split('.').Last();
+                MessagingCenter.Send(this, typeName, parameter);
+            }
             MainNavigationPage.Navigation.PushAsync(Pages[pageName]);
+            
+            
+        }
+        public void NavigateBack()
+        {
+            MainNavigationPage.PopAsync();
         }
 
         private void MainNavigationPage_Pushed(object sender, NavigationEventArgs e)

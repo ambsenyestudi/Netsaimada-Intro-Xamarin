@@ -11,5 +11,6 @@ namespace XamIntro.Services.Contract
         Task AddExpenseAsync(ExpenseModel ex);
 
         Task<IEnumerable<ExpenseModel>> GetExpensesAsync();
+        
     }
 }

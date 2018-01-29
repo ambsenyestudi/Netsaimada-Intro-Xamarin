@@ -47,10 +47,21 @@ namespace XamIntro.ViewModels
             {
                 _selectedExpense = value;
                 OnPropertyChanged("SelectedExpense");
-                NavigationService.NavigateTo("EditExpenseView");
+                NavigationService.NavigateTo("EditExpenseView", _selectedExpense);
             }
         }
 
+        private Command _addExpenseCommand;
+
+        public Command AddExpenseCommand
+        {
+            get { return _addExpenseCommand; }
+            set
+            {
+                _addExpenseCommand = value;
+                OnPropertyChanged("AddExpenseCommand");
+            }
+        }
 
         public ExpenseSummaryViewModel()
         {
@@ -87,7 +98,12 @@ namespace XamIntro.ViewModels
         {
             Expenses = new ObservableCollection<ExpenseModel>();
             GetExpensesCommand = new Command(async () => await GetExpensesAync());
-            //AddExpenseCommand = new Command(async () => await GetAddExpense());
+            AddExpenseCommand = new Command( () => addExpense());
+        }
+
+        private void addExpense()
+        {
+            NavigationService.NavigateTo("NewExpenseView");
         }
     }
 }

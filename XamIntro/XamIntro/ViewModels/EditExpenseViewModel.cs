@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using XamIntro.Models;
+using XamIntro.Services;
 
 namespace XamIntro.ViewModels
 {
-    public class EditExpenseDetailViewModel:BindableObject
+    public class EditExpenseViewModel:BindableObject
     {
         private ExpenseModel _expense;
         public ExpenseModel Expense
@@ -19,7 +20,7 @@ namespace XamIntro.ViewModels
             }
         }
         public Command UpdateCommand { get; set; }
-        public EditExpenseDetailViewModel()
+        public EditExpenseViewModel()
         {
             Expense = new ExpenseModel
             {
@@ -29,7 +30,17 @@ namespace XamIntro.ViewModels
                 Date = DateTime.Now,
                 Receipt = "Default"
             };
+            MessagingCenter.Subscribe<NavigationService, object>(this, "ExpenseModel", (sender, param) => updateExpense(param));
             UpdateCommand = new Command(() => { OnPropertyChanged("Expense"); });
+        }
+
+        private void updateExpense(object obj)
+        {
+            ExpenseModel newModel = obj as ExpenseModel;
+            if(newModel!=null)
+            {
+                Expense = newModel;
+            }
         }
     }
 }

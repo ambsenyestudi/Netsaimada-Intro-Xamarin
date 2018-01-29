@@ -29,8 +29,9 @@ namespace XamIntro.Services.Fakes
         {
             await Task.Run(() => {
                 Initialize();
+                expenses.Add(expense);
             });
-            expenses.Add(expense);
+            
         }
         public async Task<IEnumerable<ExpenseModel>> GetExpensesAsync()
         {
@@ -39,5 +40,6 @@ namespace XamIntro.Services.Fakes
             });
             return expenses;
         }
+        
     }
 }

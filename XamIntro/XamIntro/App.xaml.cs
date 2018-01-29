@@ -24,9 +24,10 @@ namespace XamIntro
             NavigationService navigationService = new NavigationService();
             navigationService.RegisterPage("MainView", typeof(MainView), typeof(MainViewModel));
             navigationService.RegisterPage("ExpenseSummaryView", typeof(ExpenseSummaryView), typeof(ExpenseSummaryViewModel));
-            navigationService.RegisterPage("NewExpenseView", typeof(NewExpenseView));
+            navigationService.RegisterPage("NewExpenseView", typeof(NewExpenseView), typeof(NewExpenseViewModel));
+            navigationService.RegisterPage("EditExpenseView", typeof(EditExpenseView), typeof(EditExpenseViewModel));
             navigationService.RegisterPage("ExpenseChartView", typeof(ExpenseChartView));
-            navigationService.RegisterPage("EditExpenseView", typeof(EditExpenseView));
+            
             navigationService.NavigateTo("MainView");
             App.Current.Resources.Add("NavigationService", navigationService);
             IDataService dataService = new FakeDataService();
