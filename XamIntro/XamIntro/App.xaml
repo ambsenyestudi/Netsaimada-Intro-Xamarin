@@ -4,7 +4,9 @@
              x:Class="XamIntro.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            
+        </ResourceDictionary>
 
 	</Application.Resources>
 </Application>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="New Expense"
+             x:Class="XamIntro.Views.NewExpenseView">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+                <StackLayout Margin="5">
+                    <Label Text="New Expense" FontSize="Large"/>
+                    <Label Text="Company"/>
+                    <Entry Text="{Binding Expense.Company}"/>
+                    <Label Text="Description"/>
+                    <Entry Text="{Binding Expense.Description}"/>
+                    <Label Text="Amount"/>
+                    <Entry Text="{Binding Expense.Amount}"/>
+                    <Label Text="Date"/>
+                    <Entry Text="{Binding Expense.Date}"/>
+                    <Label Text="Receipt"/>
+                    <Entry Text="{Binding Expense.Receipt}"/>
+                </StackLayout>
+                <Grid Grid.Row="1" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Reset" Command="{Binding ResetCommand}" />
+                    <Button Text="Save" Command="{Binding SaveCommand}" Grid.Column="1"/>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

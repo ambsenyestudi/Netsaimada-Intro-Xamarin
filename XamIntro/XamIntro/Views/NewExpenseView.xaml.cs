@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamIntro.ViewModels;
 
 namespace XamIntro.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditExpenseView : ContentPage
+	public partial class NewExpenseView : ContentPage
 	{
-		public EditExpenseView ()
+		public NewExpenseView ()
 		{
 			InitializeComponent ();
-            this.BindingContext = new EditExpenseViewModel();
-        }
+		}
 	}
 }
