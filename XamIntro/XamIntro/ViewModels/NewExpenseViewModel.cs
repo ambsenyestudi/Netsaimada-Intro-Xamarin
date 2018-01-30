@@ -69,6 +69,7 @@ namespace XamIntro.ViewModels
         private void saveExpenseAndGoBack()
         {
             dataService.AddExpenseAsync(Expense);
+            ResetCommand.Execute(null);
             NavigationService.NavigateBack();
         }
     }

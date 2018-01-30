@@ -68,6 +68,7 @@ namespace XamIntro.ViewModels
             initializeViewModel();
             //On Show workarround
             MessagingCenter.Subscribe<NavigationService>(this, "Page pushed",(obj)=> GetExpensesCommand.Execute(null));
+            MessagingCenter.Subscribe<NavigationService>(this, "Page poped", (obj) => GetExpensesCommand.Execute(null));
         }
 
         private async Task GetExpensesAync()

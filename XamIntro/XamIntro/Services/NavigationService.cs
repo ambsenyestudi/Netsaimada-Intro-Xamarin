@@ -15,7 +15,14 @@ namespace XamIntro.Services
         {
             initService();
             MainNavigationPage.Pushed += MainNavigationPage_Pushed;
+            MainNavigationPage.Popped += MainNavigationPage_Popped;
         }
+
+        private void MainNavigationPage_Popped(object sender, NavigationEventArgs e)
+        {
+            MessagingCenter.Send(this, "Page poped");
+        }
+
         public void RegisterPage(string pageName, Type view, Type bindingContext = null)
         {
             if (!view.IsSubclassOf(typeof(Page)))
